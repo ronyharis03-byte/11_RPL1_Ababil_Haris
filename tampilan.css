@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizzing: border-box;
+}
+
+/*Membuat tampilan utama navbar*/
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:blue;
+  color:aqua;
+  padding: 16px 32px;
+}
+
+/*Membuat tampilan logo*/
+.navbar .logo{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/*membuat tampilan daftar menu*/
+.nav-links{
+  list-style: none;
+  display:flex;
+  gap: 25px;
+}
+
+/*membuat tampilan teks link*/
+.nav-links a{
+  color:aqua;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: impact;
+}
+
+/*membuat tampilan hover*/
+.nav-links a:hover{
+ background-color:blue;
+  color:cyan;
+}
+
+#items{
+  font-size: 16px;
+  font-family: impact;
+  color:cadetblue;
+}
