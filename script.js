@@ -12,3 +12,18 @@ function tampilkanNama () {
      </button>
   `;
 }
+
+
+function tampilkanPesanan() {
+  document.getElementById("KlikPesanan").innerHTML = `
+  
+  <ol style="list-style-type: decimal; padding-left:5%;">
+    <li> sudah</li>
+  </ol>
+
+  <a href="resep_makanan.html">
+      <button onclick="location.reload()">
+        tutup kembali
+     </button>
+  `;
+}

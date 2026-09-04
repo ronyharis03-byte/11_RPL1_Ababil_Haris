@@ -1,11 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Resep Makanan</title> 
+    <link rel="stylesheet" href="tampilan.css"> 
+    <script src="scriptt.js"></script> 
+    <style> 
+        .tombol:hover { 
+            background-color: #4CAF50; 
+            color: white; 
+        } 
+        body { 
+            background-color:lightblue; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <nav class="navbar"> 
+        <div class="logo">Web RPL</div> 
+        <ul class="nav-links"> 
+            <li><a href="index.html">Halaman Utama</a></li> 
+            <li><a href="resep_makanan.html">Resep Makanan</a></li> 
+            <li><a href="#">Surat Izin</a></li> 
+            <li><a href="Kontak_Anggota.html">Kontak Anggota</a></li> 
+        </ul> 
+    </nav> 
+
+    <h1 style="margin-top:30px; padding-left:10%;"> Resep Kue Bandung Coklat Keju </h1> 
+    
+    <div style="width:80%; margin:30px 10%; font-family:Arial;"> 
+        <center> 
+            <h2 style="background-color: aquamarine;">🍽️ Deskripsi</h2> 
+            <img src="martabak-manis.jpg" alt="Kue Bandung Coklat Keju" style="width:50%; height:auto; margin:15px 0 20px 30px;">
+            
+            </center>
+        </div> 
+        <hr> 
+        
+        <h2 style="margin-top:30px; background-color: aquamarine;">🛠️ Alat</h2> 
+        <ul style="margin:15px 0 20px 30px; line-height:1.8; background-color:aqua;"> 
+            <li>Mangkuk</li> 
+            <li>Sendok</li> 
+            <li>Whisk atau pengocok</li> 
+            <li>Teflon atau wajan</li> 
+            <li>Spatula</li> 
+            <li>Parutan keju</li> 
+            <li>Piring</li> 
+        </ul> 
+        <hr> 
+        
+        <h2 style="background-color: aquamarine;">🥣 Bahan</h2> 
+        <ul style="margin:15px 0 20px 30px; line-height:1.8; background-color:aqua;"> 
+            <li>250 gram tepung terigu</li> 
+            <li>50 gram gula pasir</li> 
+            <li>1 butir telur</li> 
+            <li>300 ml air</li> 
+            <li>1/2 sendok teh garam</li> 
+            <li>1/2 sendok teh baking powder</li> 
+            <li>1/2 sendok teh soda kue</li> 
+            <li>1 sendok makan margarin</li> 
+            <li>Coklat meses secukupnya</li> 
+            <li>Keju parut secukupnya</li> 
+            <li>Susu kental manis secukupnya</li> 
+        </ul> 
+        <hr> 
+        
+        <h2 style="background-color: aquamarine;">👨‍🍳 Tutorial Pembuatan</h2> 
+        <ol style="margin:15px 0 20px 30px; line-height:1.8; background-color:aqua;"> 
+            <li>Campurkan tepung terigu, gula, garam, dan baking powder ke dalam mangkuk.</li> 
+            <li>Tambahkan telur dan air sedikit demi sedikit sambil diaduk hingga adonan halus.</li> 
+            <li>Diamkan adonan selama kurang lebih 30 menit.</li> 
+            <li>Tambahkan soda kue lalu aduk hingga tercampur rata.</li> 
+            <li>Panaskan teflon dengan api kecil dan olesi sedikit margarin.</li> 
+            <li>Tuangkan adonan ke dalam teflon dan ratakan.</li> 
+            <li>Masak hingga muncul lubang-lubang kecil pada permukaan adonan.</li> 
+            <li>Taburkan gula, coklat meses, dan keju parut.</li> 
+            <li>Tambahkan susu kental manis secukupnya.</li> 
+            <li>Lipat kue menjadi dua dan olesi bagian luarnya dengan margarin.</li> 
+            <li>Potong menjadi beberapa bagian dan sajikan.</li> 
+        </ol> 
+        
+        <h2 id="KlikPesanan"> Klik Tombol untuk melihat Daftar Pesanan! </h2> 
+        <button class="tombol" onclick="tampilkanPesanan()">Pesan</button> 
+        
+        <script> 
+            function tampilkanPesanan() { 
+                alert("Pesanan Anda telah diterima! Silakan cek daftar pesanan di bawah ini."); 
+            } 
+        </script> 
+    </div> 
+</body> 
 </html>
