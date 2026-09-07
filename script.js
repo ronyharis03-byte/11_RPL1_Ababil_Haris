@@ -14,16 +14,13 @@ function tampilkanNama () {
 }
 
 
-function tampilkanPesanan() {
-  document.getElementById("KlikPesanan").innerHTML = `
-  
-  <ol style="list-style-type: decimal; padding-left:5%;">
-    <li> sudah</li>
-  </ol>
+function validasiform(){
+  var tglMulai = document.getElementById('tgl_Mulai')
+  var tglSelesai = document.getElementById('tgl_Selesai')
 
-  <a href="resep_makanan.html">
-      <button onclick="location.reload()">
-        tutup kembali
-     </button>
-  `;
+  if (new date (tglselesai) < new date(tglmulai)){
+    alert('tanggal selesai tidak boleh lebih awal dari tanggal mulai!');
+  }
+  return true;
+
 }
