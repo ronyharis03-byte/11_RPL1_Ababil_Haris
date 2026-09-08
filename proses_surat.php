@@ -1,20 +1,22 @@
 <?php
 //masukan libary DpmPDF
+ob_start();
 require_once 'vendor/autoload.php';
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
 //instansiasi objek Dompdf
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-  //ambil data dari form html
-  $nama    = htmlspecialchars($_POST['nama']);
-  $nis    = htmlspecialchars($_POST['nis']);
-  $kelas    = htmlspecialchars($_POST['kelas']);
-  $alasan    = htmlspecialchars($_POST['alasan']);
-  $tgl_mulai    = date ('d f y', strtotime($_POST['tgl_mulai']));
-  $tgl_selesai    = date('d f y' , strtotime($_POST['tgl_selesai']));
-  $keterangan    = htmlspecialchars($_POST['keterangan']);
-  $tgl_sekarang   = date('d f y');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nama = htmlspecialchars($_POST['nama'] ?? '', ENT_QUOTES, 'UTF-8');
+    $nis = htmlspecialchars($_POST['nis'] ?? '', ENT_QUOTES, 'UTF-8');
+    $kelas = htmlspecialchars($_POST['kelas'] ?? '', ENT_QUOTES, 'UTF-8');
+    $alasan = htmlspecialchars($_POST['alasan'] ?? '', ENT_QUOTES, 'UTF-8');
+    $keterangan = htmlspecialchars($_POST['keterangan'] ?? '', ENT_QUOTES, 'UTF-8');
+
+    $tgl_mulai = date('d-m-Y', strtotime($_POST['tgl_mulai'] ?? 'now'));
+    $tgl_selesai = date('d-m-Y', strtotime($_POST['tgl_selesai'] ?? 'now'));
+    $tgl_sekarang = date('d-m-Y');
+
 
   //template halaman pdf
   $html = '
@@ -46,7 +48,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       .kop p{
       margin 2px;
-      font-size: 10pt;
       }
       
       .title{
@@ -63,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       .table-data{
           margin: 15px 0 15px 30px;
-          width: 100%
+          width: 100%;
       }
 
       .table-data td{
@@ -97,17 +98,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
            <tr>
              <td width="130">Nama</td>
              <td>:</td>
-             <td><b>' .$Nama.'</b></td>
+             <td><b>' .$nama.'</b></td>
            </tr>
            <tr>
              <td width="130">Nis</td>
              <td width="15">:</td>
-             <td><b>' .$NIS.'</b></td>
+             <td><b>' .$nis.'</b></td>
            </tr>
            <tr>
              <td>Kelas</td>
              <td>:</td>
-             <td><b>' .$Kelas.'</b></td>
+             <td><b>' .$kelas.'</b></td>
            </tr>
           </table>
           
@@ -116,7 +117,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
               sampai dengan  <b>' .$tgl_selesai. '</b>
               dikarenakan <b>' .$alasan. '</b>
           </p>
-          ' .($keterangan ? '<p>Detail Keterangan: ' .$keterangan. '</p>' : '').' 
+          ' .($keterangan ? '<p>Detail keterangan: ' .$keterangan. '</p>' : '').' 
           <p>Demikian surat pengajuan surat izin ini saya buat. 
           Atas perhatian dan pengertian Bapak/Ibu, saya ucapkan terima kasih.
           </p>
@@ -125,7 +126,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
          <div class="ttd-box">
          <p>Semarang, '.$tgl_sekarang.'<br>Hormat saya,</p>
          <br><br><br>
-         <p><b>('.$nama . ')</b><p/>
+         <p><b>('. $nama . ')</b><p/>
       </div>
     </div>
   </body>
@@ -133,18 +134,20 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   ';
 
-//3. konfigurasi dan insialisasi Dompdf
-$options = new options();
+//3. Konfigurasi dan Insialisasi Dompdf
+$options = new Options();
 $options->set('isRemoteEnabled', true); //memungkinkan load gambar eksternal jika ada
-$dompdf = new dompdf($options);
+$dompdf = new Dompdf($options);
 
-//4. render html ke pdf
+//4. Render HTML ke PDF
 $dompdf->loadHtml($html);
-$dompdf->setpaper('A4' , 'portrait');
+$dompdf->setPaper('A4' , 'portrait');
 $dompdf->render();
 
-//5. stream pdf ke browser
-$dompdf->stream("surat_izin_" .str_replace('', '_' ,$Nama) . ".pdf", ["Attaciment" => false]);
+ob_end_clean();
+
+//5. Stream PDF ke Browser
+$dompdf->stream("Surat_Izin_" . str_replace(' ', '_' , $nama) . ".pdf", ["Attachment" => false]);
 
 }
 ?>

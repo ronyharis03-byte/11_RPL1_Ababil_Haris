@@ -27,22 +27,22 @@
 
       <form action="proses_surat.php" method="post" target="_blank" onsubmit="return validasiform()">
         <div class="form-group">
-          <label for="Nama">Nama Lengkap</label>
-          <input type="text" nama="nama" id="nama" required placeholder="Contoh: budiman">
+          <label for="name">Nama Lengkap</label>
+          <input type="Text" name="nama" id="nama" required placeholder="Contoh: budiman">
         </div>
 
         <div class="form-group">
-          <label for="NIS"> NIS </label>
-          <input type="number" NAME="NIS" id="NIS" required placeholder="Contoh: 257001">
+          <label for="nis"> NIS </label>
+          <input type="number" name="nis" id="nis" required placeholder="Contoh: 257001">
         </div>
 
         <div class="form-group">
-          <label for="Kelas">Kelas</label>
+          <label for="kelas">Kelas</label>
           <input type="Text" name="kelas" id="kelas" required placeholder="Contoh: XI RPL 1">
         </div>
 
         <div class="form-group">
-          <label for="Alasan">Alasan izin:</label>
+          <label for="alasan">Alasan izin:</label>
           <select name="alasan" id="alasan" required>
             <option value="">Pilih alasan izin</option>
             <option value="Sakit">Sakit</option>
@@ -55,11 +55,11 @@
 
         <div class="form-row">
           <div class="form-group half">
-              <label for="tanggal mulai"> tanggal mulai:</label>
+              <label for="tgl_mulai"> tanggal mulai:</label>
               <input type="date" name="tgl_mulai" id="tgl_mulai" required>
           </div>
           <div class="form-group half">
-              <label for="tanggal selesai"> tanggal selesai:</label>
+              <label for="tgl_selesai"> tanggal selesai:</label>
               <input type="date" name="tgl_selesai" id="tgl_selesai" required>
           </div>
         </div>
